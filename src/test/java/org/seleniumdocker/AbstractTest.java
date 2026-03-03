@@ -19,14 +19,17 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-public abstract class AbstractTest {
+public abstract class AbstractTest 
+{
 
     public WebDriver driver;
 
     @BeforeTest
     @Parameters({"browser"})
-    public void setup(String browser) throws MalformedURLException {
-        if (Boolean.getBoolean("selenium.grid.enabled")) {
+    public void setup(String browser) throws MalformedURLException 
+    {
+        if (Boolean.getBoolean("selenium.grid.enabled")) 
+        {
             this.driver = getRemoteDriver(browser);
         } else {
             this.driver = getLocalDriver();
@@ -35,14 +38,22 @@ public abstract class AbstractTest {
 
     }
 
-    private WebDriver getRemoteDriver(String browser) throws MalformedURLException {
+    private WebDriver getRemoteDriver(String browser) throws MalformedURLException 
+    {
         Capabilities capabilities;
-        if (browser.equalsIgnoreCase("chrome")) {
+        
+        if (browser.equalsIgnoreCase("chrome")) 
+        {
             capabilities = new ChromeOptions();
-        } else {
+        } 
+        
+        else 
+        {
             capabilities = new FirefoxOptions();
         }
+    
         return new RemoteWebDriver(new URL(UserConfig.getProperties().remoteURL()), capabilities);
+    
     }
 
     private WebDriver getLocalDriver() {

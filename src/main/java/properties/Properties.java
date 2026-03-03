@@ -7,7 +7,8 @@ import org.aeonbits.owner.Config;
         "file:${user.dir}/resources/URLForTests.properties"})
 
 
-public interface Properties extends Config {
+public interface Properties extends Config 
+{
 
     @Key("UrlFlightsPage")
     String UrlToNavigate();

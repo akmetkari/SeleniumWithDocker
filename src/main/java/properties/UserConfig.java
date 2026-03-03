@@ -13,4 +13,9 @@ public final class UserConfig {
     static {
         properties = ConfigFactory.create(Properties.class);
     }
+
+ // Changed from static field to a method to ensure initialization
+    public static Properties getProperties() {
+        return ConfigFactory.create(Properties.class);
+    }
 }

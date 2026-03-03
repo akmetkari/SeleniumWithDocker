@@ -12,9 +12,10 @@ import org.testng.annotations.Test;
 import properties.UserConfig;
 
 
-public class FlightReservationTest extends AbstractTest {
+public class FlightReservationTest extends AbstractTest 
+{
 
-    private String noOfPassengers;
+	private String noOfPassengers;
 
     @BeforeTest
     @Parameters({"noOfPassengers"})
@@ -23,10 +24,13 @@ public class FlightReservationTest extends AbstractTest {
     }
 
     @Test
-    public void userRegisterationTest() {
+    public void userRegisterationTest() 
+    {
         RegisterationPage registerationPage = new RegisterationPage(driver);
         registerationPage.goToUrl(UserConfig.getProperties().UrlToNavigate());
+        
         Assert.assertTrue(registerationPage.isAt());
+        
         registerationPage.enterUserDetails(UserConfig.getProperties().firstName(), UserConfig.getProperties().lastName());
         registerationPage.enterUserCredentials(UserConfig.getProperties().emailID(), UserConfig.getProperties().pswd());
         registerationPage.enterAddress(UserConfig.getProperties().street(), UserConfig.getProperties().city(), UserConfig.getProperties().zip());
